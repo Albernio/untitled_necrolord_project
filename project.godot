@@ -15,6 +15,10 @@ run/main_scene="uid://b8b21e5kfsg7j"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameFlow="*uid://biptyx8xhvqi7"
+
 [display]
 
 window/stretch/mode="canvas_items"
