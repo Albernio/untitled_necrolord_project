@@ -1,6 +1,7 @@
 # Necro Telemetry Project
 ## Structure
 
+```text
 scripts/
 ├── autoloads/
 │   ├── game_flow.gd
@@ -11,6 +12,7 @@ scripts/
 │   └── enemy_squad.gd
 └── buildings/
     └── bone_forge.gd
+```
 
 ## Scripts
 
