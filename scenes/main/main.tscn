@@ -1,17 +1,28 @@
 [gd_scene format=3 uid="uid://b8b21e5kfsg7j"]
 
 [ext_resource type="Script" uid="uid://lxa8ke2vmyug" path="res://scripts/main/main.gd" id="1_hyk8p"]
+[ext_resource type="PackedScene" uid="uid://c4chjijdq2qx8" path="res://scenes/world/test_region.tscn" id="2_iuonh"]
 
 [node name="Main" type="Node3D" unique_id=1235945560]
 script = ExtResource("1_hyk8p")
 
 [node name="World" type="Node3D" parent="." unique_id=1698198598]
 
+[node name="test_region" parent="World" unique_id=234748671 instance=ExtResource("2_iuonh")]
+
 [node name="Actors" type="Node3D" parent="." unique_id=1540241525]
 
 [node name="Effects" type="Node3D" parent="." unique_id=633910037]
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=2079161003]
+
+[node name="GameplayCamera" type="Camera3D" parent="CameraRig" unique_id=2117753002]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.8161376, 0.5778576, 0, -0.5778576, 0.8161376, 0, 12, 20)
+projection = 1
+current = true
+size = 24.0
+near = 0.1
+far = 100.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1393185262]
 transform = Transform3D(0.8660254, 0.35355338, -0.35355338, 0, 0.70710677, 0.70710677, 0.5, -0.6123724, 0.6123724, 0, 0, 0)

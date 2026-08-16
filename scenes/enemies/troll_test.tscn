@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ub30utyuxrkx"]
+
+[ext_resource type="PackedScene" uid="uid://cq3kb7x5o6mrn" path="res://assets/warcraft-troll-headhunter/source/Headhunter_Final.fbx" id="1_4gh74"]
+
+[node name="Headhunter_Final" unique_id=2062100351 instance=ExtResource("1_4gh74")]
