@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lxa8ke2vmyug" path="res://scripts/main/main.gd" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://c4chjijdq2qx8" path="res://scenes/world/test_region.tscn" id="2_iuonh"]
+[ext_resource type="PackedScene" uid="uid://bnadq3pen6b7h" path="res://scenes/minions/troll_headhunter.tscn" id="3_k2fmo"]
 
 [node name="Main" type="Node3D" unique_id=1235945560]
 script = ExtResource("1_hyk8p")
@@ -11,6 +12,9 @@ script = ExtResource("1_hyk8p")
 [node name="test_region" parent="World" unique_id=234748671 instance=ExtResource("2_iuonh")]
 
 [node name="Actors" type="Node3D" parent="." unique_id=1540241525]
+
+[node name="Troll_headhunter" parent="Actors" unique_id=1544064056 instance=ExtResource("3_k2fmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
 
 [node name="Effects" type="Node3D" parent="." unique_id=633910037]
 

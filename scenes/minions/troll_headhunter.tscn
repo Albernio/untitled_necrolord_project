@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bnadq3pen6b7h"]
+
+[ext_resource type="PackedScene" uid="uid://b71qxwebfuauq" path="res://assets/models/Troll_headhunter.fbx" id="1_osl0y"]
+[ext_resource type="Texture2D" uid="uid://gbgdoxvwgcea" path="res://assets/textures/Troll_headhunter/Troll_headhunter_Base_Color(hue1+AO).jpeg" id="2_fgc3d"]
+[ext_resource type="Texture2D" uid="uid://brypu7euir77a" path="res://assets/textures/Troll_headhunter/Troll_headhunter_Metallic.png" id="3_yljdk"]
+[ext_resource type="Texture2D" uid="uid://d2vw4miun4lov" path="res://assets/textures/Troll_headhunter/Troll_headhunter_Normal.png" id="4_6g6g1"]
+[ext_resource type="Texture2D" uid="uid://ctpgrgusy8672" path="res://assets/textures/Troll_headhunter/Troll_headhunter_Roughness.png" id="5_xbc07"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_743bd"]
+albedo_texture = ExtResource("2_fgc3d")
+metallic = 1.0
+metallic_texture = ExtResource("3_yljdk")
+roughness_texture = ExtResource("5_xbc07")
+normal_enabled = true
+normal_texture = ExtResource("4_6g6g1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g71bj"]
+albedo_texture = ExtResource("3_yljdk")
+
+[node name="Troll_headhunter" unique_id=1544064056 instance=ExtResource("1_osl0y")]
+
+[node name="HeadHunter" parent="HeadHunterRig/Skeleton3D" parent_id_path=PackedInt32Array(199180322) index="0" unique_id=2110459694]
+material_override = SubResource("StandardMaterial3D_743bd")
+
+[node name="Spear2" parent="HeadHunterRig/Skeleton3D" parent_id_path=PackedInt32Array(199180322) index="1" unique_id=627909335]
+material_override = SubResource("StandardMaterial3D_g71bj")
+
+[node name="HeadHunter_001" parent="HeadHunterRig/Skeleton3D" parent_id_path=PackedInt32Array(199180322) index="2" unique_id=40069861]
+visible = false

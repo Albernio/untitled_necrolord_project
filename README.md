@@ -74,4 +74,3 @@ No abras `index.html` con doble clic.
    ```
 
 4. Para detener el servidor, pulsa `Ctrl+C`.
-

@@ -1,25 +1,26 @@
 [gd_scene format=3 uid="uid://c4chjijdq2qx8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1sea3"]
-size = Vector3(60, 1, 60)
+size = Vector3(80, 1, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvdij"]
 albedo_color = Color(0.20204829, 0.4485682, 0.071215115, 1)
+albedo_texture_msdf = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uvqyy"]
-size = Vector3(60, 1, 60)
+size = Vector3(80, 1, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1sea3"]
-size = Vector3(60, 2, 1)
+size = Vector3(80, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dgq11"]
-size = Vector3(60, 2, 1)
+size = Vector3(80, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_75y0s"]
-size = Vector3(1, 2, 60)
+size = Vector3(1, 2, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e0nwg"]
-size = Vector3(1, 2, 60)
+size = Vector3(1, 2, 50)
 
 [node name="test_region" type="Node3D" unique_id=234748671]
 
@@ -37,29 +38,49 @@ shape = SubResource("BoxShape3D_uvqyy")
 [node name="Bounds" type="Node3D" parent="." unique_id=797761729]
 
 [node name="NorthWall" type="StaticBody3D" parent="Bounds" unique_id=538813086]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -25)
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds/NorthWall" unique_id=1577043338]
 shape = SubResource("BoxShape3D_1sea3")
 
 [node name="SouthWall" type="StaticBody3D" parent="Bounds" unique_id=1431188975]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 25)
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds/SouthWall" unique_id=668575443]
 shape = SubResource("BoxShape3D_dgq11")
 
 [node name="WestWall" type="StaticBody3D" parent="Bounds" unique_id=645703958]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 1, 0)
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds/WestWall" unique_id=18822337]
 shape = SubResource("BoxShape3D_75y0s")
 
 [node name="EastWall" type="StaticBody3D" parent="Bounds" unique_id=971517238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 1, 0)
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds/EastWall" unique_id=518103728]
 shape = SubResource("BoxShape3D_e0nwg")
+
+[node name="PlayerSpawn" type="Node3D" parent="." unique_id=1259113336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+
+[node name="Base" type="Node3D" parent="." unique_id=1229959082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="EnemySpawn" type="Node3D" parent="." unique_id=1149486649]
+
+[node name="North" type="Node3D" parent="EnemySpawn" unique_id=2072633369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20)
+
+[node name="South" type="Node3D" parent="EnemySpawn" unique_id=686222150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 20)
+
+[node name="West" type="Node3D" parent="EnemySpawn" unique_id=395490870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1, 0)
+
+[node name="East" type="Node3D" parent="EnemySpawn" unique_id=2108491052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 1, 0)
