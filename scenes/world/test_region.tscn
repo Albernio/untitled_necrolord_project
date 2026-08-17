@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://c4chjijdq2qx8"]
 
+[ext_resource type="Script" uid="uid://d1ys53lqxxg35" path="res://scenes/world/enemy_spawner.gd" id="1_xyk8c"]
+[ext_resource type="PackedScene" uid="uid://bnadq3pen6b7h" path="res://scenes/enemies/troll_headhunter.tscn" id="2_g8086"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_1sea3"]
 size = Vector3(80, 1, 50)
 
@@ -68,10 +71,10 @@ shape = SubResource("BoxShape3D_e0nwg")
 [node name="PlayerSpawn" type="Node3D" parent="." unique_id=1259113336]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
 
-[node name="Base" type="Node3D" parent="." unique_id=1229959082]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-
-[node name="EnemySpawn" type="Node3D" parent="." unique_id=1149486649]
+[node name="EnemySpawn" type="Node3D" parent="." unique_id=1149486649 node_paths=PackedStringArray("spawn_points")]
+script = ExtResource("1_xyk8c")
+enemy_scene = ExtResource("2_g8086")
+spawn_points = [NodePath("North"), NodePath("East"), NodePath("South"), NodePath("West")]
 
 [node name="North" type="Node3D" parent="EnemySpawn" unique_id=2072633369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://hdk26y52a62d"]
+
+[ext_resource type="PackedScene" uid="uid://dhsevs2avpity" path="res://scenes/player/shaman.tscn" id="1_8afob"]
+[ext_resource type="Script" uid="uid://bbjv7h262gkqd" path="res://scripts/player/player.gd" id="1_dovo2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xbxob"]
+radius = 1.0
+height = 4.4
+
+[node name="Player" type="CharacterBody3D" unique_id=1543874941]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_dovo2")
+acceleration = 1000.0
+deceleration = 1000.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=188488141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2224712, 0)
+shape = SubResource("CapsuleShape3D_xbxob")
+
+[node name="VisualPivot" type="Node3D" parent="." unique_id=545799964]
+
+[node name="ShamanAnimFinal" parent="VisualPivot" unique_id=1083898804 instance=ExtResource("1_8afob")]
