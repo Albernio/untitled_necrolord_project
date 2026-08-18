@@ -25,6 +25,10 @@ CapabilityRegistry="*uid://bxj2ffutp4tq6"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Player=""
+
 [input]
 
 move_up={

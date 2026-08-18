@@ -3,12 +3,6 @@ extends CharacterBody3D
 # Maximum movement speed of the Necrolord.
 @export var move_speed: float = 15.0
 
-# How quickly the player reaches full speed.
-@export var acceleration: float = 30.0
-
-# How quickly the player stops when movement input is released.
-@export var deceleration: float = 35.0
-
 # How quickly the character turns toward its movement direction.
 @export var rotation_speed: float = 10.0
 
@@ -30,33 +24,16 @@ func _physics_process(delta: float) -> void:
 
 	# Accelerate while receiving movement input.
 	if move_direction != Vector3.ZERO:
-		velocity.x = move_toward(
-			velocity.x,
-			target_velocity.x,
-			acceleration * delta
-		)
+		velocity.x = target_velocity.x
+		velocity.z = target_velocity.z
 
-		velocity.z = move_toward(
-			velocity.z,
-			target_velocity.z,
-			acceleration * delta
-		)
 		#Animation trigger
 		animation_player.play_run()
 
 	# Decelerate when the player releases the controls.
 	else:
-		velocity.x = move_toward(
-			velocity.x,
-			0.0,
-			deceleration * delta
-		)
-
-		velocity.z = move_toward(
-			velocity.z,
-			0.0,
-			deceleration * delta
-		)
+		velocity.x = target_velocity.x
+		velocity.z = target_velocity.z
 
 		#Animation trigger
 		animation_player.play_idle()
