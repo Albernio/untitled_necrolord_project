@@ -6,7 +6,10 @@ extends CharacterBody3D
 # How quickly the character turns toward its movement direction.
 @export var rotation_speed: float = 10.0
 
-@onready var animation_player: AnimationPlayer = $VisualPivot/ShamanAnimFinal/AnimationPlayer
+@onready var animation_tree: AnimationTree = $AnimationTree
+
+@onready var animation_state: AnimationNodeStateMachinePlayback = \
+	animation_tree.get("parameters/playback")
 
 # Attack Variables
 @onready var melee_area: Area3D = $MeleeArea
@@ -16,6 +19,10 @@ extends CharacterBody3D
 @export var melee_cooldown: float = 0.6
 
 var can_melee: bool = true
+
+func _ready() -> void:
+	animation_tree.active = true
+	animation_state.start("Idle")
 
 	
 func _physics_process(delta: float) -> void:
@@ -38,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = target_velocity.z
 
 		#Animation trigger
-		animation_player.play_run()
+		animation_state.travel("Run_Attack")
 
 	# Decelerate when the player releases the controls.
 	else:
@@ -46,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = target_velocity.z
 
 		#Animation trigger
-		animation_player.play_idle()
+		animation_state.travel("Idle")
 
 	# Only rotate while we have movement input.
 	if move_direction != Vector3.ZERO:
