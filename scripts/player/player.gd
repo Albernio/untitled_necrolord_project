@@ -67,8 +67,6 @@ func melee_attack() -> void:
 		return
 
 	can_melee = false
-	# Play attack animation
-	animation_player.play_attack()
 
 	# Get everything currently inside the melee radius.
 	var targets := melee_area.get_overlapping_bodies()
