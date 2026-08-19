@@ -8,6 +8,16 @@ extends CharacterBody3D
 
 @onready var animation_player: AnimationPlayer = $VisualPivot/ShamanAnimFinal/AnimationPlayer
 
+# Attack Variables
+@onready var melee_area: Area3D = $MeleeArea
+
+@export var melee_damage: float = 25.0
+@export var melee_knockback: float = 12.0
+@export var melee_cooldown: float = 0.6
+
+var can_melee: bool = true
+
+	
 func _physics_process(delta: float) -> void:
 	# Read the four directional input actions.
 	var input_vector := Input.get_vector(
@@ -49,3 +59,48 @@ func _physics_process(delta: float) -> void:
 		)
 		
 	move_and_slide()
+	melee_attack()
+
+
+func melee_attack() -> void:
+	if not can_melee:
+		return
+
+	can_melee = false
+	# Play attack animation
+	animation_player.play_attack()
+
+	# Get everything currently inside the melee radius.
+	var targets := melee_area.get_overlapping_bodies()
+
+	for target in targets:
+		if target.has_method("take_melee_hit"):
+			hit_enemy(target)
+
+	# Temporary cooldown.
+	await get_tree().create_timer(melee_cooldown).timeout
+
+	can_melee = true
+
+func hit_enemy(enemy: Node3D) -> void:
+	# Direction naturally pointing away from the player.
+	var away_direction := enemy.global_position - global_position
+	away_direction.y = 0.0
+	away_direction = away_direction.normalized()
+
+	# Add some randomness.
+	var random_direction := Vector3(
+		randf_range(-0.7, 0.7),
+		0.0,
+		randf_range(-0.7, 0.7)
+	)
+
+	var final_direction := (
+		away_direction + random_direction
+	).normalized()
+
+	enemy.take_melee_hit(
+		melee_damage,
+		final_direction,
+		melee_knockback
+	)
