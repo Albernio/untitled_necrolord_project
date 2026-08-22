@@ -16,8 +16,7 @@ extends CharacterBody3D
 
 @export var melee_damage: float = 25.0
 @export var melee_knockback: float = 12.0
-@export var melee_cooldown: float = 0.6
-@export var melee_attack_time: float = 0.4
+@export var melee_cooldown: float = 2.0
 @export var attack_speed: float = 1.0
 
 var can_melee: bool = true
@@ -47,8 +46,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = target_velocity.z
 
 		#Animation trigger
-		animation_tree.set("parameters/Run_Attack/AttackTimeScale/scale", attack_speed)
-		animation_state.travel("Run_Attack")
+		animation_tree.set("parameters/Run/RunTimeScale/scale", attack_speed)
+		animation_state.travel("Run")
 
 	# Decelerate when the player releases the controls.
 	else:
@@ -70,10 +69,7 @@ func _physics_process(delta: float) -> void:
 		)
 		
 	move_and_slide()
-	if abs(
-		melee_attack_time - animation_state.get_current_play_position()
-	) <= 0.05:
-		melee_attack()
+	melee_attack()
 
 
 func melee_attack() -> void:

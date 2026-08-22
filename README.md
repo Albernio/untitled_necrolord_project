@@ -74,3 +74,14 @@ No abras `index.html` con doble clic.
    ```
 
 4. Para detener el servidor, pulsa `Ctrl+C`.
+
+
+## Upcoming tasks
+
+No abras `index.html` con doble clic.
+
+1. Camera distance.
+
+2. Attacks.
+
+3. Refactoring.
