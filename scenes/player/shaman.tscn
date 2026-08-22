@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://dq6mnotd8q6sa" path="res://assets/textures/warcraft-orc-shaman/Shaman_Metallic.jpeg" id="3_dnrgl"]
 [ext_resource type="Texture2D" uid="uid://d1mwnx5qw2ccg" path="res://assets/textures/warcraft-orc-shaman/Shaman_Normal.jpeg" id="4_onins"]
 [ext_resource type="Texture2D" uid="uid://cptfaqmg6284w" path="res://assets/textures/warcraft-orc-shaman/Shaman_Roughness.jpeg" id="5_n3hta"]
-[ext_resource type="Script" uid="uid://bl4ixhfbwwr5k" path="res://scripts/animation_controllers/shaman_animation_controller.gd" id="6_hnstf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q7an"]
 albedo_texture = ExtResource("2_hnstf")
@@ -18,10 +17,10 @@ normal_texture = ExtResource("4_onins")
 [node name="ShamanAnimFinal" unique_id=1083898804 instance=ExtResource("1_g34i8")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="ShamanRig" parent="." index="0" unique_id=331684857]
+[node name="ShamanRig" parent="." index="0" unique_id=404382779]
 transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 0, 0, 0)
 
-[node name="Skeleton3D" parent="ShamanRig" index="0" unique_id=1682518032]
+[node name="Skeleton3D" parent="ShamanRig" index="0" unique_id=584613215]
 bones/0/position = Vector3(3.0198067e-16, 0.00062053726, 0.00929712)
 bones/0/rotation = Quaternion(0.8234671, 1.3527016e-07, 1.9632981e-07, 0.56736416)
 bones/1/position = Vector3(-6.5167783e-17, 0.002304477, 1.1804027e-10)
@@ -343,36 +342,35 @@ bones/146/position = Vector3(3.8366993e-10, 0.0054563303, -1.6673112e-10)
 bones/146/rotation = Quaternion(0.19796544, -0.103607975, 0.062098175, 0.97273785)
 bones/146/scale = Vector3(0.9999999, 0.99999994, 0.9999999)
 
-[node name="Cape" parent="ShamanRig/Skeleton3D" index="0" unique_id=539353515]
+[node name="Cape" parent="ShamanRig/Skeleton3D" index="0" unique_id=1397191980]
 material_override = SubResource("StandardMaterial3D_6q7an")
 
-[node name="Kilt" parent="ShamanRig/Skeleton3D" index="1" unique_id=712978079]
+[node name="Kilt" parent="ShamanRig/Skeleton3D" index="1" unique_id=2038352740]
 material_override = SubResource("StandardMaterial3D_6q7an")
 
-[node name="FurCape" parent="ShamanRig/Skeleton3D" index="2" unique_id=547984100]
+[node name="FurCape" parent="ShamanRig/Skeleton3D" index="2" unique_id=1389345602]
 material_override = SubResource("StandardMaterial3D_6q7an")
 
-[node name="Chain" parent="ShamanRig/Skeleton3D" index="3" unique_id=42861839]
+[node name="Chain" parent="ShamanRig/Skeleton3D" index="3" unique_id=736901399]
 material_override = SubResource("StandardMaterial3D_6q7an")
 
-[node name="Body" parent="ShamanRig/Skeleton3D" index="4" unique_id=465462584]
+[node name="Body" parent="ShamanRig/Skeleton3D" index="4" unique_id=1823476095]
 material_override = SubResource("StandardMaterial3D_6q7an")
 
-[node name="Braids" parent="ShamanRig/Skeleton3D" index="5" unique_id=1116543668]
+[node name="Braids" parent="ShamanRig/Skeleton3D" index="5" unique_id=757680049]
 material_override = SubResource("StandardMaterial3D_6q7an")
 
-[node name="Braid" parent="ShamanRig/Skeleton3D" index="6" unique_id=430284802]
+[node name="Braid" parent="ShamanRig/Skeleton3D" index="6" unique_id=364887858]
 material_override = SubResource("StandardMaterial3D_6q7an")
 
-[node name="Eyes" parent="ShamanRig/Skeleton3D" index="7" unique_id=1337101148]
+[node name="Eyes" parent="ShamanRig/Skeleton3D" index="7" unique_id=289142012]
 material_override = SubResource("StandardMaterial3D_6q7an")
 
-[node name="TeethTop" parent="ShamanRig/Skeleton3D" index="8" unique_id=914567341]
+[node name="TeethTop" parent="ShamanRig/Skeleton3D" index="8" unique_id=983321657]
 material_override = SubResource("StandardMaterial3D_6q7an")
 
-[node name="TeethBottom" parent="ShamanRig/Skeleton3D" index="9" unique_id=480076843]
+[node name="TeethBottom" parent="ShamanRig/Skeleton3D" index="9" unique_id=1771017005]
 material_override = SubResource("StandardMaterial3D_6q7an")
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=1189052990]
+[node name="AnimationPlayer" parent="." index="1" unique_id=225851541]
 autoplay = &"ShamanRig|Shaman_Stand1"
-script = ExtResource("6_hnstf")
